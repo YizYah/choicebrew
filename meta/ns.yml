@@ -1,0 +1,56 @@
+userClass: user
+codeName: MyApp
+template:
+  dir: /home/yisroel/packages/packrat-ts-all/packrat
+  name: null
+  version: 1
+starter: /home/yisroel/packages/choicebrew-all/choicebrew.starter
+general:
+  packageName: choicebrew
+  author: YizYah
+  owner: YizYah
+  description: simple interactive menus
+  repositoryName: choicebrew
+  license: MIT
+  multi: true
+static:
+  typeCategory:
+    functionTypes:
+      slug: functionTypes
+      specs:
+        types:
+          - name: ChoicesGenerator
+            description: a function that generates a set of choices for a given menu
+            category: type
+          - name: ChoiceCallback
+            description: a function called when a menu option is chosen
+            category: type
+        description: Function types that you need to create a menu
+    constants:
+      slug: constants
+      specs:
+        description: Constants used with choice-brew menus
+        types:
+          - name: FlowType
+            description: >-
+              distinguish between types of options.  Currently just BACK (exit
+              the menu or submenu) and COMMAND (execute a command)
+            category: enum
+          - name: SelectedInfo
+            description: >-
+              specifying a selection.  Consists of a FlowType enum value 'flow'
+              and any 'value' assigned to the choice.
+            category: interface
+          - name: MenuAnswers
+            description: >-
+              consists of simply 'selected', which is an instance of
+              SelectedInfo.
+            category: interface
+          - name: Choice
+            description: >-
+              The information for a choice, including the 'flow' (a FlowType,
+              almost always COMMAND), a 'name' string, and a number of options.
+              You can assign the following inquirer fields for a choice:
+              description, value, short version.  Also, a callback function.
+            category: interface
+  grouping: {}

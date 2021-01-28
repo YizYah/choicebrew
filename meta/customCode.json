@@ -1,0 +1,41 @@
+{
+  "addedCode": {
+    "standard": {
+      ".gitignore": {
+        "path": ".gitignore",
+        "extra": "\n"
+      },
+      "src/index.ts": {
+        "path": "src/index.ts",
+        "beginning": "\n",
+        "export": "\n    // replace this with your own export\n    // module.exports = \"hello world\"\nexport {menu, getValue} from '../src/custom/menu'\n    "
+      },
+      "test/index.test.ts": {
+        "path": "test/index.test.ts",
+        "customImports": "\n",
+        "general": "\ntest('types', t => {\n  console.log(`\n  typeof output.ChoicesGenerator = ${typeof output.ChoicesGenerator}\n  `)\n  // replace with whatever you'd like.  To start over with the default, remove everything including the\n  t.is(typeof output.FlowType, \"object\")\n  // t.not(typeof output.Choice, \"undefined\")\n  t.is(typeof output.menu, \"function\")\n});\n\n\ntest('general', t => {\n  // replace with whatever you'd like.  To start over with the default, remove everything including the\n  t.not(typeof output.menu, \"undefined\")\n  t.is(typeof output.menu, \"function\")\n});\n"
+      }
+    },
+    "static-typeCategory": {
+      "constants.ts": {
+        "path": "src/types/constants.ts",
+        "helpers": "\nimport {ChoiceCallback} from './functionTypes'\n",
+        "FlowType": "\n  back = 'BACK',\n  command = 'COMMAND',\n",
+        "SelectedInfo": "\n  flow: FlowType;\n  value?: any;\n  ",
+        "MenuAnswers": "\n  selected: SelectedInfo;\n  ",
+        "menuQuestionName": "\n",
+        "Choice": "\n  flow: FlowType;\n  name: string;\n  description?: string;\n  value?: any;\n  short?: string;\n  callback?: ChoiceCallback;\n  ",
+        "extraExports": "\n"
+      },
+      "functionTypes.ts": {
+        "path": "src/types/functionTypes.ts",
+        "helpers": "\nimport {Choice, MenuAnswers} from './constants'\n",
+        "ChoicesGenerator": "\n  (context: any) => Choice[]\n",
+        "ChoiceCallback": "\n  (context: any, answers: MenuAnswers) => any\n",
+        "extraExports": "\n"
+      }
+    }
+  },
+  "replacedCode": {},
+  "removedCode": {}
+}

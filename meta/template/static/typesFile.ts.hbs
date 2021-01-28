@@ -1,0 +1,12 @@
+{{custom helpers}}
+
+{{#each specs.types}}
+// {{description}}
+export {{category}} {{capitalizeFirst name}} {{#if (includes ['type','const'] category)}}={{else}}{{curly true}}{{/if}}
+/* ns__custom_start {{name}} */
+/* ns__custom_end {{name}} */
+{{#if (not (includes ['type','const'] category))}}{{curly}}{{/if}}
+
+{{/each}}
+
+{{custom extraExports}}
