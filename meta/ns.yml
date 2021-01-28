@@ -15,27 +15,21 @@ general:
   multi: true
 static:
   typeCategory:
-    functionTypes:
-      slug: functionTypes
-      specs:
-        types:
-          - name: ChoicesGenerator
-            description: a function that generates a set of choices for a given menu
-            category: type
-          - name: ChoiceCallback
-            description: a function called when a menu option is chosen
-            category: type
-        description: Function types that you need to create a menu
     constants:
       slug: constants
       specs:
-        description: Constants used with choice-brew menus
+        description: Interfaces and enums used with choicebrew menus
         types:
           - name: FlowType
-            description: >-
-              distinguish between types of options.  Currently just BACK (exit
-              the menu or submenu) and COMMAND (execute a command)
             category: enum
+            description: >-
+              Options for a flow in a Choice.  Currently just BACK (exit the
+              menu or submenu) and COMMAND (execute a command).  Almost always
+              you will want to set a Choice to COMMAND, because by default a
+              BACK Choice is created for you automatically unless you override
+              that with your own.  But see the setFlow function, which allows
+              you to dynamically change a flow to BACK inside of an executing
+              ChoiceCallback.
           - name: SelectedInfo
             description: >-
               specifying a selection.  Consists of a FlowType enum value 'flow'
@@ -46,6 +40,11 @@ static:
               consists of simply 'selected', which is an instance of
               SelectedInfo.
             category: interface
+          - name: SelectedInfo
+            description: >-
+              specifying a selection.  Consists of a FlowType enum value 'flow'
+              and any 'value' assigned to the choice.
+            category: interface
           - name: Choice
             description: >-
               The information for a choice, including the 'flow' (a FlowType,
@@ -53,4 +52,42 @@ static:
               You can assign the following inquirer fields for a choice:
               description, value, short version.  Also, a callback function.
             category: interface
-  grouping: {}
+    functionTypes:
+      slug: functionTypes
+      specs:
+        description: type declarations for the functions used in menus
+        types:
+          - name: ChoicesGenerator
+            description: a function that generates a set of choices for a given menu
+            category: type
+          - name: ChoiceCallback
+            description: a function called when a menu option is chosen
+            category: type
+  grouping:
+    functions:
+      slug: functions
+      specs:
+        description: functions for working with menus
+        constants:
+          - name: menu
+            type: function
+            description: >-
+              takes a ChoiceGenerator and continuously prompts the user for
+              choices until a choice with the FlowType BACK is selected. When a
+              choice with FlowType BACK is selected, the menu exits. You can
+              also call setFlow in the callback for a choice to set the FlowType
+              to BACK dynamically, thereby exiting the menu after execution of
+              the callback.
+          - name: getValue
+            type: function
+            description: >-
+              returns the value entered or selected by a user.  This is useful
+              in the callback for a ChoiceCallback
+          - name: setFlow
+            type: function
+            description: >-
+              sets the flow for a Choice to be a FlowType.  Normally, this is
+              only useful for setting flow to BACK in a ChoiceCallback.  Doing
+              that will result in the menu exiting after the ChoiceCallback
+              executes.  For instance, it will exit a submenu and return to the
+              menu above.

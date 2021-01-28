@@ -3,12 +3,13 @@
 /* ns__custom_end beginning */
 
 /* types */
-export * from './types/functionTypes'
 export * from './types/constants'
+export * from './types/functionTypes'
 
     /* ns__custom_start export */
     // replace this with your own export
-    // module.exports = "hello world"
-export {menu, getValue, setFlow} from '../src/custom/menu'
+    module.exports = "hello world"
     /* ns__custom_end export */
 /* constants */
+
+  export const functions = require('./groupings/functions')

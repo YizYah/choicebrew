@@ -5,31 +5,61 @@
         "path": ".gitignore",
         "extra": "\n"
       },
-      "src/index.ts": {
-        "path": "src/index.ts",
+      "README.md": {
+        "path": "README.md",
         "beginning": "\n",
-        "export": "\n    // replace this with your own export\n    // module.exports = \"hello world\"\nexport {menu, getValue} from '../src/custom/menu'\n    "
+        "description": "\nchoicebrew\n======\nsimple interactive menus\n",
+        "afterDescription": "\n",
+        "badges": "\n\n[//]: # ( ns__start_section usageSection )\n\n[![Version](https://img.shields.io/npm/v/choicebrew.svg)](https://npmjs.org/package/choicebrew)\n[![Downloads/week](https://img.shields.io/npm/dw/choicebrew.svg)](https://npmjs.org/package/choicebrew)\n[![License](https://img.shields.io/npm/l/choicebrew.svg)](https://github.com/YizYah/choicebrew/blob/master/package.json)\n",
+        "APIIntro": "\n# API\n",
+        "constantsIntro": "\n## General Constants and Commands\n",
+        "typeIntro": "\n## Types\nThe following types and interfaces are exposed by choicebrew.\n"
+      },
+      "src/index.ts": {
+        "path": "lib/index.js",
+        "beginning": "\n",
+        "export": "\n    // replace this with your own export\n    "
       },
       "test/index.test.ts": {
         "path": "test/index.test.ts",
         "customImports": "\n",
-        "general": "\ntest('types', t => {\n  console.log(`\n  typeof output.ChoicesGenerator = ${typeof output.ChoicesGenerator}\n  `)\n  // replace with whatever you'd like.  To start over with the default, remove everything including the\n  t.is(typeof output.FlowType, \"object\")\n  // t.not(typeof output.Choice, \"undefined\")\n  t.is(typeof output.menu, \"function\")\n});\n\n\ntest('general', t => {\n  // replace with whatever you'd like.  To start over with the default, remove everything including the\n  t.not(typeof output.menu, \"undefined\")\n  t.is(typeof output.menu, \"function\")\n});\n"
+        "general": "\ntest('general', t => {\n  // replace with whatever you'd like.  To start over with the default, remove everything including the\n  t.not(typeof output.functions.menu, \"undefined\")\n});\n"
+      }
+    },
+    "static-grouping": {
+      "functions.ts": {
+        "path": "lib/groupings/functions.js",
+        "helpers": "\n",
+        "menu": "\n    require('../custom/menu').menu,\n    ",
+        "getValue": "\n    require('../custom/menu').getValue,\n    ",
+        "setFlow": "\n    require('../custom/menu').setFlow,\n    "
+      },
+      "functions.test.ts": {
+        "path": "test/groupings/functions.test.ts",
+        "customImports": "\n",
+        "tests": "\ntest('functions', t => {\n// update this as you update functions\n  t.is(typeof functions.getValue, \"function\")\n  t.is(typeof functions.setFlow, \"function\")\n  t.is(typeof functions.menu, \"function\")\n});\n"
+      }
+    },
+    "": {
+      "": {
+        "path": "lib/types/constants.js",
+        "FlowType": "\n    FlowType[\"back\"] = \"BACK\";\n    FlowType[\"command\"] = \"COMMAND\";\n    ",
+        "extraExports": "\n"
       }
     },
     "static-typeCategory": {
       "constants.ts": {
         "path": "src/types/constants.ts",
         "helpers": "\nimport {ChoiceCallback} from './functionTypes'\n",
-        "FlowType": "\n  back = 'BACK',\n  command = 'COMMAND',\n",
+        "FlowType": "\n  back = 'BACK',\n  command = 'COMMAND',\n  ",
         "SelectedInfo": "\n  flow: FlowType;\n  value?: any;\n  ",
         "MenuAnswers": "\n  selected: SelectedInfo;\n  ",
-        "menuQuestionName": "\n",
-        "Choice": "\n  flow: FlowType;\n  name: string;\n  description?: string;\n  value?: any;\n  short?: string;\n  callback?: ChoiceCallback;\n  ",
+        "Choice": "\n  flow: FlowType;\n  name: string;\n  description?: string;\n  value?: any;\n  short?: string;\n  callback?: ChoiceCallback;\n\n  ",
         "extraExports": "\n"
       },
       "functionTypes.ts": {
         "path": "src/types/functionTypes.ts",
-        "helpers": "\nimport {Choice, MenuAnswers} from './constants'\n",
+        "helpers": "\nimport {Choice, MenuAnswers} from '../types/constants'\n",
         "ChoicesGenerator": "\n  (context: any) => Choice[]\n",
         "ChoiceCallback": "\n  (context: any, answers: MenuAnswers) => any\n",
         "extraExports": "\n"
