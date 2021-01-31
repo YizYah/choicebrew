@@ -8,9 +8,9 @@
 [//]: # ( ns__start_section intro )
 
 [//]: # ( ns__custom_start description )
-choicebrew
-======
-simple interactive menus
+simple interactive menus using inquirer
+
+![](src/custom/images/choicebrew.gif)
 
 [//]: # ( ns__custom_end description )
 
@@ -35,6 +35,16 @@ simple interactive menus
 
 
 [//]: # ( ns__custom_start APIIntro )
+# Why
+The inquirer package is great for directed interactive sequences, but a CLI menu requires looping and maintaining some context.  It's easy to end up with spaghetti code trying to handle nested submenus.
+
+# What
+A pair of functions and some types to organize your ts code.
+* A `Choice` is fundamentally a named `ChoiceCallback` (any function you'd like to execute when the user chooses it.)
+* a `ChoiceGenerator` takes in a context (any object you'd like) and returns a Choice.  
+* `menu()` takes as a parameter your own ChoiceGenerator.
+* Every menu will automatically add a choice to exit the menu if you don't add it yourself. But you can override it yourself by offering a Choice with `flow` set to `FlowType.back`.
+
 # API
 
 [//]: # ( ns__custom_end APIIntro )

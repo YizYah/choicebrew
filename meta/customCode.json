@@ -8,10 +8,10 @@
       "README.md": {
         "path": "README.md",
         "beginning": "\n",
-        "description": "\nchoicebrew\n======\nsimple interactive menus\n",
+        "description": "\nsimple interactive menus using inquirer\n\n![](src/custom/images/choicebrew.gif)\n",
         "afterDescription": "\n",
         "badges": "\n\n[//]: # ( ns__start_section usageSection )\n\n[![Version](https://img.shields.io/npm/v/choicebrew.svg)](https://npmjs.org/package/choicebrew)\n[![Downloads/week](https://img.shields.io/npm/dw/choicebrew.svg)](https://npmjs.org/package/choicebrew)\n[![License](https://img.shields.io/npm/l/choicebrew.svg)](https://github.com/YizYah/choicebrew/blob/master/package.json)\n",
-        "APIIntro": "\n# API\n",
+        "APIIntro": "\n# Why\nThe inquirer package is great for directed interactive sequences, but a CLI menu requires looping and maintaining some context.  It's easy to end up with spaghetti code trying to handle nested submenus.\n\n# What\nA pair of functions and some types to organize your ts code.\n* A `Choice` is fundamentally a named `ChoiceCallback` (any function you'd like to execute when the user chooses it.)\n* a `ChoiceGenerator` takes in a context (any object you'd like) and returns a Choice.  \n* `menu()` takes as a parameter your own ChoiceGenerator.\n* Every menu will automatically add a choice to exit the menu if you don't add it yourself. But you can override it yourself by offering a Choice with `FlowType` set to `FlowTypes.back`.\n\n# API\n",
         "constantsIntro": "\n## General Constants and Commands\n",
         "typeIntro": "\n## Types\nThe following types and interfaces are exposed by choicebrew.\n"
       },
@@ -52,7 +52,7 @@
       },
       "functionTypes.ts": {
         "path": "src/types/functionTypes.ts",
-        "helpers": "\nimport {Choice, MenuAnswers} from '../types/constants'\n",
+        "helpers": "\nimport {Choice, MenuAnswers} from './constants'\n",
         "ChoicesGenerator": "\n  (context: any) => Choice[]\n",
         "ChoiceCallback": "\n  (context: any, answers: MenuAnswers) => any\n",
         "extraExports": "\n"
