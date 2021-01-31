@@ -1,6 +1,6 @@
 /* ns__file unit: static-typeCategory, comp: functionTypes.ts */
 /* ns__custom_start helpers */
-import {Choice, MenuAnswers} from '../types/constants'
+import {Choice, MenuAnswers} from './constants'
 /* ns__custom_end helpers */
 
 // a function that generates a set of choices for a given menu

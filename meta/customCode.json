@@ -16,9 +16,9 @@
         "typeIntro": "\n## Types\nThe following types and interfaces are exposed by choicebrew.\n"
       },
       "src/index.ts": {
-        "path": "lib/index.js",
+        "path": "src/index.ts",
         "beginning": "\n",
-        "export": "\n    // replace this with your own export\n    "
+        "export": "\n    // replace this with your own\n    "
       },
       "test/index.test.ts": {
         "path": "test/index.test.ts",
@@ -28,7 +28,7 @@
     },
     "static-grouping": {
       "functions.ts": {
-        "path": "lib/groupings/functions.js",
+        "path": "src/groupings/functions.ts",
         "helpers": "\n",
         "menu": "\n    require('../custom/menu').menu,\n    ",
         "getValue": "\n    require('../custom/menu').getValue,\n    ",
@@ -38,13 +38,6 @@
         "path": "test/groupings/functions.test.ts",
         "customImports": "\n",
         "tests": "\ntest('functions', t => {\n// update this as you update functions\n  t.is(typeof functions.getValue, \"function\")\n  t.is(typeof functions.setFlow, \"function\")\n  t.is(typeof functions.menu, \"function\")\n});\n"
-      }
-    },
-    "": {
-      "": {
-        "path": "lib/types/constants.js",
-        "FlowType": "\n    FlowType[\"back\"] = \"BACK\";\n    FlowType[\"command\"] = \"COMMAND\";\n    ",
-        "extraExports": "\n"
       }
     },
     "static-typeCategory": {

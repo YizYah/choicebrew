@@ -7,8 +7,7 @@ export * from './types/constants'
 export * from './types/functionTypes'
 
     /* ns__custom_start export */
-    // replace this with your own export
-    module.exports = "hello world"
+    // replace this with your own
     /* ns__custom_end export */
 /* constants */
 
