@@ -26,6 +26,9 @@ simple interactive menus using inquirer
 [![Downloads/week](https://img.shields.io/npm/dw/choicebrew.svg)](https://npmjs.org/package/choicebrew)
 [![License](https://img.shields.io/npm/l/choicebrew.svg)](https://github.com/YizYah/choicebrew/blob/master/package.json)
 
+[![Geenee](https://img.shields.io/badge/maintained%20by-geenee-brightgreen)](https://npmjs.org/package/geenee)
+[![Template](https://img.shields.io/badge/template-ts--packrat-blue)](https://npmjs.org/package/ts-packrat)
+
 [//]: # ( ns__custom_end badges )
 
 [//]: # ( ns__end_section intro )
@@ -44,6 +47,9 @@ A pair of functions and some types to organize your ts code.
 * a `ChoiceGenerator` takes in a context (any object you'd like) and returns a Choice.  
 * `menu()` takes as a parameter your own ChoiceGenerator.
 * Every menu will automatically add a choice to exit the menu if you don't add it yourself. But you can override it yourself by offering a Choice with `flow` set to `FlowType.back`.
+
+# Sample
+See [geenee](https://www.npmjs.com/package/geenee) for a sample CLI using `choiceBrew`.
 
 # API
 

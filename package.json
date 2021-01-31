@@ -12,7 +12,12 @@
     "prepack": "rm -rf lib && tsc -b"
   },
   "keywords": [
-    "ts-packrat"
+    "ts-packrat",
+    "inquirer",
+    "menu",
+    "generate",
+    "create",
+    "cli"
   ],
   "author": "YizYah",
   "license": "MIT",
