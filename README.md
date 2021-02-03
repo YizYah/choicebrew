@@ -8,7 +8,7 @@
 [//]: # ( ns__start_section intro )
 
 [//]: # ( ns__custom_start description )
-simple interactive menus using inquirer
+Simple interactive menus using inquirer.
 
 ![](src/custom/images/choicebrew.gif)
 
@@ -36,22 +36,29 @@ simple interactive menus using inquirer
 
 [//]: # ( ns__start_section api )
 
+<!-- toc -->
+
+* [:clipboard: Why](#why)
+* [:white_check_mark: What](#what)
+* [:bulb: Sample](#sample)
+* [:wrench: API](#api)
+  <!-- tocstop -->
 
 [//]: # ( ns__custom_start APIIntro )
-# Why
+# :clipboard: Why
 The inquirer package is great for directed interactive sequences, but a CLI menu requires looping and maintaining some context.  It's easy to end up with spaghetti code trying to handle nested submenus.
 
-# What
+# :white_check_mark: What
 A pair of functions and some types to organize your ts code.
 * A `Choice` is fundamentally a named `ChoiceCallback` (any function you'd like to execute when the user chooses it.)
 * a `ChoiceGenerator` takes in a context (any object you'd like) and returns a Choice.  
 * `menu()` takes as a parameter your own ChoiceGenerator.
 * Every menu will automatically add a choice to exit the menu if you don't add it yourself. But you can override it yourself by offering a Choice with `flow` set to `FlowType.back`.
 
-# Sample
+# :bulb: Sample
 See [geenee](https://www.npmjs.com/package/geenee) for a sample CLI using `choiceBrew`.
 
-# API
+# :wrench: API
 
 [//]: # ( ns__custom_end APIIntro )
 
