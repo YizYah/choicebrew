@@ -36,29 +36,32 @@ Simple interactive menus using inquirer.
 
 [//]: # ( ns__start_section api )
 
+[//]: # ( ns__custom_start toc )
 <!-- toc -->
 
-* [:clipboard: Why](#why)
-* [:white_check_mark: What](#what)
-* [:bulb: Sample](#sample)
-* [:wrench: API](#api)
+* [:clipboard: Why](#clipboard-why)
+* [:white_check_mark: What](#white_check_mark-what)
+* [:bulb: Sample](#bulb-sample)
+* [:cyclone: API](#cyclone-api)
   <!-- tocstop -->
 
+[//]: # ( ns__custom_end toc )
+
 [//]: # ( ns__custom_start APIIntro )
-# :clipboard: Why
+# <a name="clipboard-why"></a>:clipboard: Why
 The inquirer package is great for directed interactive sequences, but a CLI menu requires looping and maintaining some context.  It's easy to end up with spaghetti code trying to handle nested submenus.
 
-# :white_check_mark: What
+# <a name="white_check_mark-what"></a>:white_check_mark: What
 A pair of functions and some types to organize your ts code.
 * A `Choice` is fundamentally a named `ChoiceCallback` (any function you'd like to execute when the user chooses it.)
 * a `ChoiceGenerator` takes in a context (any object you'd like) and returns a Choice.  
 * `menu()` takes as a parameter your own ChoiceGenerator.
 * Every menu will automatically add a choice to exit the menu if you don't add it yourself. But you can override it yourself by offering a Choice with `flow` set to `FlowType.back`.
 
-# :bulb: Sample
+# <a name="bulb-sample"></a>:bulb: Sample
 See [geenee](https://www.npmjs.com/package/geenee) for a sample CLI using `choiceBrew`.
 
-# :wrench: API
+# <a name="cyclone-api"></a>:cyclone: API
 
 [//]: # ( ns__custom_end APIIntro )
 
